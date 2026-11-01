@@ -1,0 +1,71 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  height: 60px;
+  background: var(--color-green-dark);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.brand-icon { font-size: 1.5rem; }
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links a {
+  display: block;
+  padding: 0.4rem 0.85rem;
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  font-size: 0.93rem;
+  font-weight: 500;
+  border-radius: 6px;
+  transition: background 0.15s, color 0.15s;
+}
+
+.navbar-links a:hover,
+.navbar-links a.active {
+  background: rgba(255,255,255,0.18);
+  color: #fff;
+}
+
+.btn-logout {
+  padding: 0.4rem 0.85rem;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.35);
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.93rem;
+  font-weight: 500;
+  transition: background 0.15s;
+}
+
+.btn-logout:hover { background: rgba(255,255,255,0.28); }
+
+@media (max-width: 640px) {
+  .navbar { padding: 0 1rem; flex-wrap: wrap; height: auto; gap: 0.5rem; padding-block: 0.5rem; }
+  .navbar-links { gap: 0.1rem; flex-wrap: wrap; }
+  .navbar-links a { padding: 0.3rem 0.6rem; font-size: 0.85rem; }
+}

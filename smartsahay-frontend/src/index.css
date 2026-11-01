@@ -1,0 +1,71 @@
+/* ── Design tokens ─────────────────────────────────────────────────────────── */
+:root {
+  --color-green-dark:  #1a5c38;
+  --color-green-mid:   #2d9c63;
+  --color-green-light: #d1fae5;
+  --color-bg:          #f6f7f5;
+  --color-bg-alt:      #f1f3f0;
+  --color-border:      #e2e6e0;
+  --color-text:        #111827;
+  --color-text-muted:  #6b7280;
+}
+
+/* ── Reset / base ───────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Typography ── */
+h1, h2, h3, h4 { font-weight: 700; line-height: 1.25; }
+p  { margin: 0 0 0.75rem; }
+a  { color: var(--color-green-dark); }
+
+/* ── App shell ── */
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-main {
+  flex: 1;
+  /* no extra padding here — each page owns its own spacing */
+}
+
+/* ── Shared badge utility (used cross-component) ── */
+.badge {
+  display: inline-block;
+  padding: 0.15rem 0.6rem;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.badge-blue   { background: #dbeafe; color: #1d4ed8; }
+.badge-orange { background: #fef3c7; color: #b45309; }
+.badge-gray   { background: #f3f4f6; color: #374151; }
+.badge-green  { background: #dcfce7; color: #15803d; }
+.badge-red    { background: #fee2e2; color: #b91c1c; }
+
+/* ── Focus ring ── */
+:focus-visible {
+  outline: 2px solid var(--color-green-mid);
+  outline-offset: 2px;
+}
+
+/* ── Scrollbar (Webkit) ── */
+::-webkit-scrollbar        { width: 8px; height: 8px; }
+::-webkit-scrollbar-track  { background: var(--color-bg-alt); }
+::-webkit-scrollbar-thumb  { background: #c4cac0; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #a0a79c; }
