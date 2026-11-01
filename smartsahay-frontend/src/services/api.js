@@ -1,4 +1,9 @@
-const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080/smartsahay';
+// All API calls use a relative path (/api/...).
+// In development, Vite's proxy (vite.config.js) forwards them to the backend
+// machine defined in VITE_API_URL, so CORS is never an issue.
+// In production (built + deployed), the frontend must be served from the same
+// origin as the backend, OR you set an absolute URL here via the env variable.
+const BASE_URL = import.meta.env.VITE_API_URL_ABSOLUTE || '';
 
 function getToken() {
   return sessionStorage.getItem('ss_token');
@@ -27,10 +32,10 @@ export class ApiError extends Error {
   }
 }
 
-// ─── Health ──────────────────────────────────────────────────────────────────
+// ─── Health ───────────────────────────────────────────────────────────────────
 export const getHealth = () => request('/api/health');
 
-// ─── Schemes (public) ────────────────────────────────────────────────────────
+// ─── Schemes (public) ─────────────────────────────────────────────────────────
 export function getSchemes({ category, state, level, lang } = {}) {
   const p = new URLSearchParams();
   if (category) p.set('category', category);
@@ -46,11 +51,11 @@ export const getScheme = (slug, lang) => {
   return request(`/api/schemes/${slug}${qs}`);
 };
 
-// ─── Eligibility ─────────────────────────────────────────────────────────────
+// ─── Eligibility ──────────────────────────────────────────────────────────────
 export const checkEligibility = (body) =>
   request('/api/eligibility', { method: 'POST', body: JSON.stringify(body) });
 
-// ─── Admin auth ──────────────────────────────────────────────────────────────
+// ─── Admin auth ───────────────────────────────────────────────────────────────
 export const adminLogin = (username, password) =>
   request('/api/admin/login', {
     method: 'POST',
@@ -59,7 +64,7 @@ export const adminLogin = (username, password) =>
 
 export const adminSession = () => request('/api/admin/session');
 
-// ─── Admin scheme CRUD ───────────────────────────────────────────────────────
+// ─── Admin scheme CRUD ────────────────────────────────────────────────────────
 export const createScheme = (body) =>
   request('/api/schemes', { method: 'POST', body: JSON.stringify(body) });
 
