@@ -1,0 +1,11 @@
+.footer {
+  background: var(--color-green-dark);
+  color: rgba(255,255,255,0.75);
+  text-align: center;
+  padding: 1.25rem 2rem;
+  font-size: 0.82rem;
+  margin-top: auto;
+}
+
+.footer p { margin: 0.2rem 0; }
+.footer-disclaimer { font-style: italic; opacity: 0.65; }
